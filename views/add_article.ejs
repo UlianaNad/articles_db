@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/article.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Додати нову статтю:</h1>
+        <form action="/add_article" enctype="multipart/form-data" method="post" class="form">
+            <input name="title" type="text" placeholder="Write the title:">
+            <br>
+            <textarea name="text" rows="4" cols="50" placeholder="Write the text of article:"></textarea>
+            <br>
+            <!-- <input name="author" type="text" placeholder="The author of an article:"> -->
+            <select class="author" name="author" id="">
+                
+            </select>
+           
+            <br>
+            <button name="submit" class="submit" type="submit">Зберегти</button>
+        </form>
+    </div>
+    <div class="list">
+        
+
+    </div>
+    <br>
+    <a href="http://localhost:5000/add_author"><button>До авторів</button></a>
+    
+    <script src="/js/add_article.js"></script>
+</body>
+</html>

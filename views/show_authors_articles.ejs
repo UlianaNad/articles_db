@@ -10,18 +10,22 @@
 
 </head>
 <body>
-    <div class="container1">
-        
+    <div class="author_container"></div>
+    <h3>Список статтей автора:</h3>
+    <div class="articles_list">
+        <% articles.forEach((article) =>{ %>
+            <h4>
+                <a href="http://localhost:5000/article/<%= article._id %>"><%= article.title %></a>
+            </h4>
+        <% }) %>
     </div>
-    <div class="article_container">
-        
-    </div> 
     <br>
     <a href="http://localhost:5000/add_author"><button>До авторів</button></a>
-    <a href="http://localhost:5000/add_article"><button>До статтей</button></a>  
-    <script src="/js/show_article.js"></script>
+    
+    <script src="/js/show_authors_articles.js"></script>
+
     <script type="text/javascript">
-        getArticleById('<%= articleId %>');
+        getAuthorById('<%= authorId %>');
     </script>
 </body>
 </html>

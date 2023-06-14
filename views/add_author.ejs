@@ -11,21 +11,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>The new article</h1>
+        <h1>Додати нового автора:</h1>
         <form action="/article" enctype="multipart/form-data" method="post" class="form">
-            <input name="title" type="text" placeholder="Write the title:">
+            <input name="name" type="text" placeholder="Write the name:">
             <br>
-            <textarea name="text" rows="4" cols="50" placeholder="Write the text of article:"></textarea>
+            <input name="surname" type="text" placeholder="Write the surname:">
             <br>
-            <input name="author" type="text" placeholder="The author of an article:">
-            <br>
-            <button name="submit" class="submit" type="submit">Save</button>
+            <button name="submit" class="submit" type="submit">Зберегти</button>
         </form>
     </div>
     <div class="list">
         
 
     </div>
-    <script src="/js/articles.js"></script>
+    <br>
+    <a href="http://localhost:5000/add_article"><button>До статтей</button></a>
+    <script src="/js/add_author.js"></script>
 </body>
 </html>

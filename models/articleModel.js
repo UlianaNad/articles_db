@@ -7,8 +7,10 @@ const articleSchema = new Schema({
             required: true},
     text: { type: String, 
             required: true},
-    author: { type: String,
-            required: true},
+    author:{ 
+        type: Schema.Types.ObjectId,
+        ref: 'author',
+        required: true},
     createdAt: {type:Date,
         default: () => Date.now(),
         immutable:true },

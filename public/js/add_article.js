@@ -1,23 +1,30 @@
-console.log('works');
-
 const title = document.querySelector('.title');
 
 const form = document.querySelector(".form");
+
+const renderAuthors = async() => {
+    const authorsList = await axios.get('/authors_list');
+    const authors = authorsList.data;
+    let html = '';
+
+    authors.forEach((author) => {
+        html +=`<option value="${author._id}">${author.name}  ${author.surname}</option>`;
+        document.querySelector('select').innerHTML = html;
+    })
+}
+renderAuthors()
 
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
 
     const formData = new FormData(ev.target);
-
-    console.log([...formData])
+    //console.log([...formData])
     const run = async () => {
-        const result = await axios.post('/article',  formData);
+        const result = await axios.post('/add_article',  formData);
         console.log(result);
     }
     run();
-
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
+    renderList();
 })
 
 
