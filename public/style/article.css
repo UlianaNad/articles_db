@@ -10,4 +10,20 @@
   justify-content: space-between;
   align-items: center;
   width: 70%;
+}
+
+.flex-block {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.block_article {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 80%;
+}
+.block_article button {
+  height: 25px;
 }/*# sourceMappingURL=article.css.map */

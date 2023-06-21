@@ -11,6 +11,10 @@ const articleSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'author',
         required: true},
+    topic:{
+        type: Schema.Types.ObjectId,
+        ref: 'topic',
+        required: true},
     createdAt: {type:Date,
         default: () => Date.now(),
         immutable:true },

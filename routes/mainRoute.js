@@ -47,13 +47,25 @@ router.post('/add_author',  (req,res) => {
     res.status(200).send(author)
   }); 
 });
-
+router.post('/articles_list_by_topic', async (req,res) => {
+  const top = JSON.parse(JSON.stringify(req.body.by_topic));
+  // console.log(top)
+  const by_topic = await articleModel
+  .find({topic: top})
+  .populate('topic')
+  //console.log(by_topic)
+  res.send(by_topic)
+});
 
 router.get('/authors_list', async (req,res) => {
   const authors_list = await authorModel.find();
   //console.log(articles_list)
+
+  
   res.json(authors_list);   
 });
+
+
 
 router.get('/author/:id', async(req,res) => {
   const authors_articles = await articleModel.find({author:req.params.id});
@@ -64,11 +76,32 @@ router.get('/author/:id', async(req,res) => {
 router.get('/author_id/:id', async(req,res) => {
   //console.log(req.params.id)
   const author = await authorModel.findOne({_id: req.params.id});
+  // const authors_topic = await authorModel
+  //   .findOne({_id: req.params.id})
+  //   .populate({
+  //     path: 'topic',
+  //     model: articleModel,
+  //     populate: {
+  //       path: "title",
+  //       model: topicModel,
+  //       select: "title"
+  //     }
+  //   }).exec();
 
-  res.json(author);
+  //   console.log(authors_topic)
+    
+  res.json(author); 
 });
 
+router.get('/topics', async(req,res) => {
+  const topics = await topicModel.find();
+  res.json( topics);
+});
 
+router.get('/by_topic', async(req,res) => {
+  
+  res.render('filter_by_topic');
+});
 
 
 module.exports = router; 

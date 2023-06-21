@@ -21,7 +21,8 @@ const renderList = async () => {
     let html = '';
     authors.forEach((author) => {
         //console.log(item)
-        html +=`<br><a href="http://localhost:5000/author/${author._id}" class="title">${author.name}  ${author.surname}</a><br>`;
+        html +=`<br><a href="http://localhost:5000/author/${author._id}" class="title">${author.name}  ${author.surname}</a><br>
+                <div>Теми статтей автора: </div>`;
         document.querySelector('.list').innerHTML = html;
     });
     
